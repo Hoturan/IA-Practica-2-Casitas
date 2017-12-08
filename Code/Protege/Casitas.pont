@@ -1,0 +1,216 @@
+; Fri Dec 08 18:02:49 GMT+01:00 2017
+; 
+;+ (version "3.4.8")
+;+ (build "Build 629")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot Balc%C3%B3n
+;+		(type ANY)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Casitas_Class4
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Superficie
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Precio_mensual
+		(type INTEGER)
+		(range 100 10000)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Coordenadas
+		(type INTEGER)
+		(cardinality 2 2)
+		(create-accessor read-write))
+	(single-slot Precio_maximo
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Distrito
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Casitas_Class7
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Coche
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Electrodomesticos
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Altura_piso
+		(type SYMBOL)
+		(allowed-values Entresuelo Primero Segundo Tercero Atico)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Amueblada
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Altura
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Localizacion_piso
+		(type INSTANCE)
+;+		(allowed-classes Localizacion)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Direccion
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edat
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Terraza
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Local
+		(type SYMBOL)
+;+		(allowed-parents)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot N%C3%BAmero_dormitorios
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Dormitorios
+		(type SYMBOL)
+		(allowed-values Simple Doble)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot Casitas_Class0
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edat_usuario
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot KB_819537_Class10
+		(type SYMBOL)
+		(allowed-values Simple)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Precio_minimo
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Vivienda
+	(is-a USER)
+	(role concrete)
+	(single-slot Balc%C3%B3n
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Terraza
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Amueblada
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Localizacion_piso
+		(type INSTANCE)
+;+		(allowed-classes Localizacion)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Electrodomesticos
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Dormitorios
+		(type SYMBOL)
+		(allowed-values Simple Doble)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot Superficie
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Precio_mensual
+		(type INTEGER)
+		(range 100 10000)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Piso
+	(is-a Vivienda)
+	(role concrete)
+	(single-slot Altura_piso
+		(type SYMBOL)
+		(allowed-values Entresuelo Primero Segundo Tercero Atico)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Duplex
+	(is-a Vivienda)
+	(role concrete))
+
+(defclass Vivienda_unifamiliar
+	(is-a Vivienda)
+	(role concrete))
+
+(defclass Localizacion
+	(is-a USER)
+	(role concrete)
+	(single-slot Distrito
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Direccion
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot Coordenadas
+		(type INTEGER)
+		(cardinality 2 2)
+		(create-accessor read-write)))
+
+(defclass Usuario
+	(is-a USER)
+	(role concrete)
+	(single-slot Coche
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edat_usuario
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Precio_minimo
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot N%C3%BAmero_dormitorios
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Precio_maximo
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
