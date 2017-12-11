@@ -1,4 +1,4 @@
-; Sun Dec 10 12:30:34 CET 2017
+; Mon Dec 11 19:31:21 CET 2017
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -7,10 +7,6 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
-	(single-slot Balc%C3%B3n
-;+		(type ANY)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot Edad_usuario
 		(type INTEGER)
 ;+		(cardinality 0 1)
@@ -24,28 +20,28 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot Superficie
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot Precio_mensual
 		(type INTEGER)
 		(range 100 10000)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Superficie
-		(type INTEGER)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot Soleado
 		(type SYMBOL)
-		(allowed-values No Ma%C3%B1ana Tarde Todo_el_dia)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot Aire_acondicionado
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
+		(allowed-values No Tarde Todo_el_dia Manyana)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot Coordenadas
 		(type INTEGER)
 		(cardinality 2 2)
+		(create-accessor read-write))
+	(single-slot Aire_acondicionado
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Precio_maximo
 		(type INTEGER)
@@ -69,6 +65,10 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot Balcon
+;+		(type ANY)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot Altura_piso
 		(type SYMBOL)
 		(allowed-values Entresuelo Primero Segundo Tercero Atico)
@@ -78,13 +78,17 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Altura
+	(single-slot Numero_dormitorios
 		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Amueblada
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Altura
+		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Localizacion_piso
@@ -106,18 +110,14 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Piscina_comunitaria
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot Local
 		(type SYMBOL)
 ;+		(allowed-parents)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot N%C3%BAmero_dormitorios
-		(type INTEGER)
+	(single-slot Piscina_comunitaria
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot Dormitorios
@@ -139,29 +139,24 @@
 		(allowed-values Simple)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Calefaccion
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 1 1)
+	(single-slot Precio_minimo
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Prohibicion_mascotas
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Precio_minimo
-		(type INTEGER)
-;+		(cardinality 0 1)
+	(single-slot Calefaccion
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
 (defclass Vivienda
 	(is-a USER)
 	(role concrete)
-	(single-slot Balc%C3%B3n
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot Terraza
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
@@ -172,14 +167,14 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Piscina_comunitaria
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot Localizacion_piso
 		(type INSTANCE)
 ;+		(allowed-classes Localizacion)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Piscina_comunitaria
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot Dormitorios
@@ -187,9 +182,8 @@
 		(allowed-values Simple Doble)
 		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write))
-	(single-slot vivienda_con_vistas
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
+	(single-slot Superficie
+		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Precio_mensual
@@ -197,8 +191,9 @@
 		(range 100 10000)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Superficie
-		(type INTEGER)
+	(single-slot vivienda_con_vistas
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Garaje_incluido
@@ -213,15 +208,20 @@
 		(create-accessor read-write))
 	(single-slot Soleado
 		(type SYMBOL)
-		(allowed-values No Ma%C3%B1ana Tarde Todo_el_dia)
+		(allowed-values No Tarde Todo_el_dia Manyana)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Calefaccion
+	(single-slot Balcon
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Prohibicion_mascotas
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Calefaccion
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
@@ -277,13 +277,13 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Numero_dormitorios
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot Precio_minimo
 		(type INTEGER)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot N%C3%BAmero_dormitorios
-		(type INTEGER)
-;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Preferencia_transporte_publico
 		(type SYMBOL)

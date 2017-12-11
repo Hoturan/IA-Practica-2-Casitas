@@ -1,4 +1,80 @@
-; Sun Dec 10 12:30:34 CET 2017
+; Mon Dec 11 19:31:21 CET 2017
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
+
+([Casitas_Class10004] of  Localizacion
+
+	(Coordenadas 88 65)
+	(Direccion "Avinguda Meridiana")
+	(Distrito "Fabra i Puig"))
+
+([Casitas_Class10005] of  Localizacion
+
+	(Coordenadas 32 44)
+	(Direccion "Passeig Valldaura")
+	(Distrito "Nou Barris"))
+
+([Casitas_Class10006] of  Usuario
+
+	(Coche TRUE)
+	(Edad_usuario 40)
+	(Numero_dormitorios 2)
+	(Precio_maximo 350000)
+	(Precio_minimo 250000)
+	(Preferencia_transporte_publico FALSE))
+
+([Casitas_Class10007] of  Duplex
+
+	(Aire_acondicionado TRUE)
+	(Amueblada TRUE)
+	(Balcon TRUE)
+	(Calefaccion TRUE)
+	(Dormitorios Doble)
+	(Electrodomesticos TRUE)
+	(Garaje_incluido TRUE)
+	(Localizacion_piso [Casitas_Class10004])
+	(Piscina_comunitaria TRUE)
+	(Precio_mensual 1200)
+	(Prohibicion_mascotas FALSE)
+	(Soleado Manyana)
+	(Superficie 100)
+	(Terraza TRUE)
+	(vivienda_con_vistas TRUE))
+
+([Casitas_Class10008] of  Piso
+
+	(Aire_acondicionado TRUE)
+	(Altura_piso Primero)
+	(Amueblada TRUE)
+	(Balcon FALSE)
+	(Calefaccion FALSE)
+	(Dormitorios Simple Simple)
+	(Electrodomesticos FALSE)
+	(Garaje_incluido TRUE)
+	(Localizacion_piso [Casitas_Class10005])
+	(Piscina_comunitaria FALSE)
+	(Precio_mensual 1000)
+	(Prohibicion_mascotas TRUE)
+	(Soleado Tarde)
+	(Superficie 99)
+	(Terraza TRUE)
+	(vivienda_con_vistas TRUE))
+
+([Casitas_Class10009] of  Vivienda_unifamiliar
+
+	(Aire_acondicionado TRUE)
+	(Amueblada TRUE)
+	(Balcon TRUE)
+	(Calefaccion TRUE)
+	(Dormitorios Doble Simple Simple)
+	(Electrodomesticos TRUE)
+	(Garaje_incluido TRUE)
+	(Localizacion_piso [Casitas_Class10004])
+	(Piscina_comunitaria TRUE)
+	(Precio_mensual 1600)
+	(Prohibicion_mascotas TRUE)
+	(Soleado Todo_el_dia)
+	(Superficie 120)
+	(Terraza TRUE)
+	(vivienda_con_vistas TRUE))
